@@ -1,12 +1,14 @@
 <h3><%= current_user.email %></h3>
 <div class='row'>
-	<div class='span4'>
+	
 		<% current_user.posts.each do |post| %> 
+		<div class='span4'>
 			<h4><%=link_to post.title, post %></h4>
 			<p>Post Date:<%= post.date.strftime('%b %d, %Y') %></p>
 			<b><p>Number of Comments:<%= post.replies.count %></p></b>
+		</div>
 		<% end %>
-	</div>
+	
 	<div class='span4 offset4'>
 		<%= link_to 'Create a New Post', new_post_path%> | <%= link_to "all posts", posts_path %>
 	</div>

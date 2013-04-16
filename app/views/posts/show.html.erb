@@ -31,6 +31,9 @@
 				<b><%= link_to reply.user.email, user_path %></b>
 				<em>(<%= reply.date.strftime('%b %d, %Y') %>)</em>
 				<p><%= reply.content %></p>
+				<% if current_user.id == reply.user_id %>
+					<p><%= link_to "Delete", reply, :method => :delete, :class => 'btn btn-primary' %></p>
+				<% end %>
 			</div>
 		<% end %>
 	</div>

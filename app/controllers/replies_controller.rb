@@ -11,4 +11,11 @@ class RepliesController < ApplicationController
 
   def new
   end
+
+  def destroy
+    reply = Reply.find(params[:id])
+    reply.destroy
+    redirect_to :back
+    flash[:success] = "You have deleted your comment"
+  end
 end
