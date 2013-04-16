@@ -11,3 +11,36 @@
 body { padding-top: 60px; }
 
 @import "twitter/bootstrap/responsive";
+
+#post_title {
+	width: 500px;
+}
+
+#post_content {
+	width: 500px;
+}
+
+.post {
+	border-style: solid;
+	border-width: thin;
+	border-color: black;
+	width: 500px;
+	
+}
+
+#reply_content {
+	height: 100px;
+}
+
+.post_link {
+	text-decoration: none;
+}
+
+.replies {
+	min-height: 75px;
+	border-style: solid;
+	margin-top: 20px;
+	border-radius: 4px;
+	border-color: #4099FF;
+}
+

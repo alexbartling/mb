@@ -1,0 +1,8 @@
+<% @posts.each do |post| %>
+<div class="post">
+	<p><%= link_to post.title, post, class: "post_link" %></p>
+	<p><%= post.user.email %></p>
+	<p><%= post.date.strftime('%m/%d/%Y') %></p>
+	<p><%= post.content %></p>	
+<% end %>
+</div>

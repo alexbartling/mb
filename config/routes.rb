@@ -1,7 +1,11 @@
 Mb::Application.routes.draw do
   
-  match '/users/:id', :to => 'users#show',    :as => :user,         :via => :get
+  resources :replies
+
+  
   devise_for :users
+  resources :users, :only => [:show]
+  resources :posts
 
   root :to => 'pages#home'
 

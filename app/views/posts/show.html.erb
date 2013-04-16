@@ -1,0 +1,38 @@
+<div class='row'>
+	<div class='span8'>
+		<h4><%= link_to @post.user.email, user_path %></h4>
+		<p><%= @post.date.strftime('%b %d, %Y') %></p>
+		<p><%= @post.title %></p>
+		<p><%= @post.content %></p>
+	</div>
+</div>
+
+
+<div class='row'>
+	<div class='span6'>
+	<% if current_user %>
+		<%= form_for @reply do |f| %>
+		<%= f.text_area :content, :class => 'span6' %>		
+		<%= f.hidden_field :post_id, :value => @post.id %>
+		<%= f.hidden_field :date, :value => Date.today %>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+		<%= f.submit "Reply", :class => 'btn btn-primary'%>
+		<% end %>
+	<% else %>
+		<%= link_to 'Please Login to Comment', new_user_sesssion %>
+	<% end %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='span6'>		
+		<% @post.replies.each do |reply| %>
+			<div class='replies'>
+				<b><%= link_to reply.user.email, user_path %></b>
+				<em>(<%= reply.date.strftime('%b %d, %Y') %>)</em>
+				<p><%= reply.content %></p>
+			</div>
+		<% end %>
+	</div>
+</div>
+
